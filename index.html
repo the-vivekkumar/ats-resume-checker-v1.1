@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATS Resume Checker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <div class="card">
+
+        <h1>⚡ ATS Resume Score Checker ⚡</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input type="file" name="resume" required>
+
+            <textarea name="jobdesc" placeholder="Paste Job Description Here..." required></textarea>
+
+            <button type="submit">Check Score 🚀</button>
+
+        </form>
+
+        {% if score is not none %}
+
+        <!-- Progress Bar -->
+        <div class="progress-box">
+            <div class="progress-bar" style="width: {{score}}%"></div>
+        </div>
+
+        <div class="result">
+            🎯 ATS Score: {{score}} %
+        </div>
+
+        {% endif %}
+
+        {% if error %}
+            <div class="error">{{error}}</div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
